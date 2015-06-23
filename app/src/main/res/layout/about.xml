@@ -9,8 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Delivery Pal was created by David Tunnell. Thanks for downloading! I hope the app is helpful in your delivery journey. If you would like to contact me about projects or anything else feel free to email me at: David@davidtunnell.com                                     Follow me on twitter: @DavidTheTunnell" />
-
+        android:text="created at Code the road Atlanta" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

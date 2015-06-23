@@ -12,11 +12,11 @@ public class SplashActivity extends SharedPref {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
 
-		// create media player variable for sound effect when starting app
-		chaChingSound = MediaPlayer.create(SplashActivity.this,
-				R.raw.splashsound);
-		// play sound
-		chaChingSound.start();
+//		// create media player variable for sound effect when starting app
+//		chaChingSound = MediaPlayer.create(SplashActivity.this,
+//				R.raw.splashsound);
+//		// play sound
+//		chaChingSound.start();
 
 		Thread timer = new Thread() {
 			public void run() {
