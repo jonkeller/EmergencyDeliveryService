@@ -12,7 +12,7 @@
         android:layout_marginRight="160dp" >
 
         <TableLayout
-            android:id="@+id/gate_code_table"
+            android:id="@+id/inventory_code_table"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:background="#96110D"

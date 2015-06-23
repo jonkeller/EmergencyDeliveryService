@@ -104,7 +104,7 @@
         <activity android:name="com.codetheroad.eds.WageActivity" />
         <activity android:name="com.codetheroad.eds.WageCheckedActivity" />
         <activity android:name="com.codetheroad.eds.MapsActivity" />
-        <activity android:name="com.codetheroad.eds.GateActivity" />
+        <activity android:name=".InventoryActivity" />
         <activity android:name="com.codetheroad.eds.TipsActivity" />
     </application>
 

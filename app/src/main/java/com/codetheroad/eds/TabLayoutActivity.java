@@ -57,11 +57,11 @@ public class TabLayoutActivity extends TabActivity {
 		Intent homeIntent = new Intent(this, HomeActivity.class);
 		homeSpec.setContent(homeIntent);
 
-		TabSpec gateSpec = tabHostObj.newTabSpec("Gate");
-		gateSpec.setIndicator("",
-				getResources().getDrawable(R.drawable.icon_gate_tab));
-		Intent gateIntent = new Intent(this, GateActivity.class);
-		gateSpec.setContent(gateIntent);
+		TabSpec inventorySpec = tabHostObj.newTabSpec("Inventory");
+		inventorySpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_inventory_tab));
+		Intent inventoryIntent = new Intent(this, InventoryActivity.class);
+		inventorySpec.setContent(inventoryIntent);
 
 		TabSpec tipsSpec = tabHostObj.newTabSpec("Tips");
 		tipsSpec.setIndicator("",
@@ -73,7 +73,7 @@ public class TabLayoutActivity extends TabActivity {
 		tabHostObj.addTab(mapsSpec);
 		tabHostObj.addTab(wageSpec);
 		tabHostObj.addTab(homeSpec);
-		tabHostObj.addTab(gateSpec);
+		tabHostObj.addTab(inventorySpec);
 		tabHostObj.addTab(tipsSpec);
 
 		// Set default tab to Home
