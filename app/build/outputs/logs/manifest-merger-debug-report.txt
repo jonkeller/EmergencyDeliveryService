@@ -79,7 +79,7 @@ ADDED from AndroidManifest.xml:24:5
 		ADDED from AndroidManifest.xml:26:9
 	android:icon
 		ADDED from AndroidManifest.xml:25:9
-activity#com.davidtunnell.deliverypal.SplashActivity
+activity#com.codetheroad.eds.SplashActivity
 ADDED from AndroidManifest.xml:27:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:30:13
@@ -99,7 +99,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:35:17
 	android:name
 		ADDED from AndroidManifest.xml:35:27
-activity#com.davidtunnell.deliverypal.TabLayoutActivity
+activity#com.codetheroad.eds.TabLayoutActivity
 ADDED from AndroidManifest.xml:38:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:42:13
@@ -119,7 +119,7 @@ category#android.intent.category.DEFAULT
 ADDED from AndroidManifest.xml:46:17
 	android:name
 		ADDED from AndroidManifest.xml:46:27
-activity#com.davidtunnell.deliverypal.HomeActivity
+activity#com.codetheroad.eds.HomeActivity
 ADDED from AndroidManifest.xml:49:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:53:13
@@ -135,7 +135,7 @@ action#com.davidtunnell.deliverypal.HOME
 ADDED from AndroidManifest.xml:55:17
 	android:name
 		ADDED from AndroidManifest.xml:55:25
-activity#com.davidtunnell.deliverypal.About
+activity#com.codetheroad.eds.About
 ADDED from AndroidManifest.xml:60:9
 	android:label
 		ADDED from AndroidManifest.xml:63:13
@@ -151,7 +151,7 @@ action#com.davidtunnell.deliverypal.ABOUT
 ADDED from AndroidManifest.xml:66:17
 	android:name
 		ADDED from AndroidManifest.xml:66:25
-activity#com.davidtunnell.deliverypal.Tutorial
+activity#com.codetheroad.eds.Tutorial
 ADDED from AndroidManifest.xml:71:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:75:13
@@ -167,7 +167,7 @@ action#com.davidtunnell.deliverypal.TUTORIAL
 ADDED from AndroidManifest.xml:77:17
 	android:name
 		ADDED from AndroidManifest.xml:77:25
-activity#com.davidtunnell.deliverypal.Preferences
+activity#com.codetheroad.eds.Preferences
 ADDED from AndroidManifest.xml:82:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:86:13
@@ -183,7 +183,7 @@ action#com.davidtunnell.deliverypal.PREFERENCES
 ADDED from AndroidManifest.xml:88:17
 	android:name
 		ADDED from AndroidManifest.xml:88:25
-activity#com.davidtunnell.deliverypal.HistoryActivity
+activity#com.codetheroad.eds.HistoryActivity
 ADDED from AndroidManifest.xml:93:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:97:13
@@ -199,23 +199,23 @@ action#com.davidtunnell.deliverypal.HISTORY
 ADDED from AndroidManifest.xml:99:17
 	android:name
 		ADDED from AndroidManifest.xml:99:25
-activity#com.davidtunnell.deliverypal.WageActivity
+activity#com.codetheroad.eds.WageActivity
 ADDED from AndroidManifest.xml:104:9
 	android:name
 		ADDED from AndroidManifest.xml:104:19
-activity#com.davidtunnell.deliverypal.WageCheckedActivity
+activity#com.codetheroad.eds.WageCheckedActivity
 ADDED from AndroidManifest.xml:105:9
 	android:name
 		ADDED from AndroidManifest.xml:105:19
-activity#com.davidtunnell.deliverypal.MapsActivity
+activity#com.codetheroad.eds.MapsActivity
 ADDED from AndroidManifest.xml:106:9
 	android:name
 		ADDED from AndroidManifest.xml:106:19
-activity#com.davidtunnell.deliverypal.GateActivity
+activity#com.codetheroad.eds.GateActivity
 ADDED from AndroidManifest.xml:107:9
 	android:name
 		ADDED from AndroidManifest.xml:107:19
-activity#com.davidtunnell.deliverypal.TipsActivity
+activity#com.codetheroad.eds.TipsActivity
 ADDED from AndroidManifest.xml:108:9
 	android:name
 		ADDED from AndroidManifest.xml:108:19
