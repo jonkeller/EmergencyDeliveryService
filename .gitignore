@@ -1,0 +1,5 @@
+app/build/*
+*.class
+*.bin
+*.apk
+.gradle/*
