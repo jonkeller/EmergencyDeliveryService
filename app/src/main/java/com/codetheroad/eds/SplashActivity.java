@@ -5,18 +5,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 
 public class SplashActivity extends SharedPref {
-	MediaPlayer chaChingSound;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
-
-//		// create media player variable for sound effect when starting app
-//		chaChingSound = MediaPlayer.create(SplashActivity.this,
-//				R.raw.splashsound);
-//		// play sound
-//		chaChingSound.start();
 
 		Thread timer = new Thread() {
 			public void run() {
@@ -33,12 +25,12 @@ public class SplashActivity extends SharedPref {
 					// preferences menu
 					if (getSavedData(firstCheck, SplashActivity.this) == null) {
 						Intent firstPref = new Intent(
-								"com.davidtunnell.deliverypal.TUTORIAL");
+								"com.codetheroad.eds.TUTORIAL");
 						startActivity(firstPref);
 					} else {
 						// else go to the main activity
 						Intent firstPref = new Intent(
-								"com.davidtunnell.deliverypal.MAINTABS");
+								"com.codetheroad.eds.MAINTABS");
 						startActivity(firstPref);
 					}
 				}
@@ -51,8 +43,6 @@ public class SplashActivity extends SharedPref {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// when activity is paused, end sound if its still on
-		chaChingSound.release();
 		// close activity
 		finish();
 	}

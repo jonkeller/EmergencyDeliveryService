@@ -70,7 +70,7 @@ public class Preferences extends SharedPref {
 				// launch main TabActiviy
 				if (firstRunCheck == null) {
 					Intent openStartingPoint = new Intent(
-							"com.davidtunnell.deliverypal.MAINTABS");
+							"com.codetheroad.eds.MAINTABS");
 					startActivity(openStartingPoint);
 					//
 				} else {

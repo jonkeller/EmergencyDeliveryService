@@ -163,7 +163,7 @@ public class WageActivity extends ManipulateInput {
 					// open history activity what will dynamically update with
 					// saved calculations
 					Intent i = new Intent(
-							"com.davidtunnell.deliverypal.HISTORY");
+							"com.codetheroad.eds.HISTORY");
 					startActivity(i);
 					// inform user of success
 					Toast.makeText(getApplicationContext(),
@@ -202,15 +202,15 @@ public class WageActivity extends ManipulateInput {
 		// Select activity to launch based on selection from options menu
 		switch (item.getItemId()) {
 		case R.id.about:
-			Intent i = new Intent("com.davidtunnell.deliverypal.ABOUT");
+			Intent i = new Intent("com.codetheroad.eds.ABOUT");
 			startActivity(i);
 			break;
 		case R.id.help:
-			Intent i2 = new Intent("com.davidtunnell.deliverypal.TUTORIAL");
+			Intent i2 = new Intent("com.codetheroad.eds.TUTORIAL");
 			startActivity(i2);
 			break;
 		case R.id.preferences:
-			Intent i3 = new Intent("com.davidtunnell.deliverypal.PREFERENCES");
+			Intent i3 = new Intent("com.codetheroad.eds.PREFERENCES");
 			startActivity(i3);
 			break;
 		}
