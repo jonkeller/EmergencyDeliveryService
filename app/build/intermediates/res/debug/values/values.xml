@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Gene/Desktop/Githubs/CodeTheRoad/Hacks/Delivery-Pal-Android-master/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">Delivery Pal</string>
+    <string name="codes_gate">Gated Community Codes</string>
+    <string name="save_gate">Save</string>
+    <!-- From: file:/C:/Users/Gene/Desktop/Githubs/CodeTheRoad/Hacks/Delivery-Pal-Android-master/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppTheme" parent="android:Theme.Light"/>
+</resources>
