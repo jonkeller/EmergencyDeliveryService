@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class GateActivity extends SharedPref {
+public class InventoryActivity extends SharedPref {
 
 	EditText[] nameArray, codeArray;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gate_layout);
+		setContentView(R.layout.inventory_layout);
 		connectVariables();
 		populateFields();
 
