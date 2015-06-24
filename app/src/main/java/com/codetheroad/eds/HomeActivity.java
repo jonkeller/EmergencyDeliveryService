@@ -70,60 +70,60 @@ public class HomeActivity extends SharedPref {
 		Marker event1 = map.addMarker(new MarkerOptions()
 				.position(Event1)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("George K.  - Medical"));
 		Marker event2 = map.addMarker(new MarkerOptions()
 				.position(Event2)
-				.title("Alert")
-				.snippet("Item Requested")
+				.title("Library")
+				.snippet("Safe Zone")
 				.icon(BitmapDescriptorFactory.fromResource(R.drawable.library64)));
 		Marker event3 = map.addMarker(new MarkerOptions()
 				.position(Event3)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Sally W.  - Emergency"));
 		Marker event4 = map.addMarker(new MarkerOptions()
 				.position(Event4)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Cat Von Dee - Climate"));
 		Marker event5 = map.addMarker(new MarkerOptions()
 				.position(Event5)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Mitch J. - Medical"));
 		Marker event6 = map.addMarker(new MarkerOptions()
 				.position(Event6)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Jerry P. - Hygiene"));
 		Marker event7 = map.addMarker(new MarkerOptions()
 				.position(Event7)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Luke W. - Climate"));
 		Marker event8 = map.addMarker(new MarkerOptions()
 				.position(Event8)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Yodi - Medical"));
 		Marker event9 = map.addMarker(new MarkerOptions()
 				.position(Event9)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Greyson B. - Hygiene"));
 		Marker event10 = map.addMarker(new MarkerOptions()
 				.position(Event10)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Kyle H. - Emergency"));
 		Marker event11 = map.addMarker(new MarkerOptions()
 				.position(Event11)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Pat K. - Climate"));
 		Marker event12 = map.addMarker(new MarkerOptions()
 				.position(Event12)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Tracy Z. - Medical"));
 		Marker event13 = map.addMarker(new MarkerOptions()
 				.position(Event13)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Trey O. - Hygiene"));
 		Marker event14 = map.addMarker(new MarkerOptions()
 				.position(Event14)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Frank S. - Climate"));
 		Marker event15 = map.addMarker(new MarkerOptions()
 				.position(Event15)
 				.title("Alert")
@@ -131,14 +131,14 @@ public class HomeActivity extends SharedPref {
 		Marker event16 = map.addMarker(new MarkerOptions()
 				.position(Event16)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Harry T.  - Hygiene"));
 
 // Find the ListView resource.
 		mainListView = (ListView) findViewById( R.id.listView );
 
 		// Create and populate a List of planet names.
-		String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
-				"Jupiter", "Saturn", "Uranus", "Neptune"};
+		String[] planets = new String[] { "George K.  - Medical", "Harry T.  - Hygiene", "Sally W.  - Emergency", "Cat Von Dee - Climate",
+				"Mitch J. - Medical", "Jerry P. - Hygiene", "Luke W. - Climate", "Yodi - Medical"};
 		ArrayList<String> planetList = new ArrayList<String>();
 		planetList.addAll( Arrays.asList(planets) );
 
@@ -148,11 +148,11 @@ public class HomeActivity extends SharedPref {
 		// Add more planets. If you passed a String[] instead of a List<String>
 		// into the ArrayAdapter constructor, you must not add more items.
 		// Otherwise an exception will occur.
-		listAdapter.add( "Ceres" );
-		listAdapter.add( "Pluto" );
-		listAdapter.add("Haumea");
-		listAdapter.add("Makemake");
-		listAdapter.add("Eris");
+		listAdapter.add( "Greyson B. - Hygiene" );
+		listAdapter.add( "Kyle H. - Emergency" );
+		listAdapter.add("Pat K. - Climate");
+		listAdapter.add("Tracy Z. - Medical");
+		listAdapter.add("Trey O. - Hygiene");
 
 		// Set the ArrayAdapter as the ListView's adapter.
 		mainListView.setAdapter( listAdapter );
