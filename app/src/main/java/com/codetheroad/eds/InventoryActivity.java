@@ -1,5 +1,6 @@
 package com.codetheroad.eds;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +19,7 @@ import com.codetheroad.eds.data.Vehicle;
 import java.util.Iterator;
 import java.util.Map;
 
-public class InventoryActivity extends SharedPref {
+public class InventoryActivity extends Activity {
 
 	TextView[] nameArray, codeArray;
 	Vehicle vehicle;
