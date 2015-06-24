@@ -11,19 +11,46 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.codetheroad.eds.data.Destination;
+import com.codetheroad.eds.data.ServerConnection;
+import com.codetheroad.eds.data.Vehicle;
+
 
 public class CommunicationActivity extends ManipulateInput {
 	public static EditText[] tipsArray;
 	EditText[] hoursArray, gasArray;
 	Button save, finish;
+	Vehicle vehicle;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.communcation_layout);
-	//	connectVariables();
-	//	populateFields();
+		try {
+			vehicle = ServerConnection.connect(this.getAssets()).getVehicle();
+			populateFields();
+		} catch (Throwable t) {
+			// Since it's just JSON data, should absolutely never get here.
+			t.printStackTrace();
+		}
+		//	connectVariables();
+        populateFields();
 	}
+
+	private void populateFields() {
+		// txtRequestedItems
+		TextView txtRequestedItems = (TextView) findViewById(R.id.txtRequestedItems);
+        Destination nextDestination = vehicle.getDestinations().get(0);
+        String itemsRequested = nextDestination.getNeedsAsString();
+		txtRequestedItems.setText(itemsRequested);
+
+		// txtItemsBeingDelivered
+		TextView txtItemsBeingDelivered = (TextView) findViewById(R.id.txtItemsBeingDelivered);
+		String itemsBeingDelivered = vehicle.getItemsBeingDeliveredAsString();
+		txtItemsBeingDelivered.setText(itemsBeingDelivered);
+    }
 
 //	private void connectVariables() {
 //		// Connect XML layout with Java

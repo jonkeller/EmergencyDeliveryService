@@ -1,16 +1,18 @@
 package com.codetheroad.eds.data;
 
+import android.content.res.AssetManager;
+
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
-import net.sf.json.JSONSerializer;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONException;
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -23,20 +25,27 @@ import java.util.Map;
  */
 public class MockServerConnection extends ServerConnection {
     protected String DATA_FILENAME = "mock_data.json";
+    AssetManager assetManager;
+
+    MockServerConnection(AssetManager am) {
+        this.assetManager = am;
+    }
 
     public Vehicle getVehicle() throws Exception {
-        InputStream is = getClass().getResourceAsStream(DATA_FILENAME);
+        InputStream is = assetManager.open(DATA_FILENAME);
         String jsonTxt = IOUtils.toString(is);
         System.out.println(jsonTxt);
         JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonTxt );
 
+        // Read vehicle
+        JSONObject jsonVehicle = json.getJSONObject("vehicle");
         // Read location
-        LatLng location = jsonToLocation(json.getJSONArray("location"));
+        LatLng location = jsonToLocation(jsonVehicle.getJSONArray("location"));
 
         // Read items on board
         Map<Item.Type, Integer> itemTypesOnBoard = new HashMap<Item.Type, Integer>();
-        JSONArray jsonItemsOnBoard = json.getJSONArray("itemsOnBoard");
-        for (int i=0; i<jsonItemsOnBoard.length(); ++i) {
+        JSONArray jsonItemsOnBoard = jsonVehicle.getJSONArray("itemsOnBoard");
+        for (int i=0; i<jsonItemsOnBoard.size(); ++i) {
             JSONObject jsonItemAndQuantity = jsonItemsOnBoard.getJSONObject(i);
             int quantity = jsonItemAndQuantity.getInt("quantity");
             Item.Type itemType = jsonToItemType(jsonItemAndQuantity.getJSONObject("item"));
@@ -45,8 +54,8 @@ public class MockServerConnection extends ServerConnection {
 
         // Read destinations
         List<Destination> destinations = new ArrayList<Destination>();
-        JSONArray jsonDestinations = json.getJSONArray("destinations");
-        for (int i=0; i<jsonDestinations.length(); ++i) {
+        JSONArray jsonDestinations = jsonVehicle.getJSONArray("destinations");
+        for (int i=0; i<jsonDestinations.size(); ++i) {
             JSONObject jsonDestination = jsonDestinations.getJSONObject(i);
             Destination destination = jsonToDestination(jsonDestination);
             destinations.add(destination);
@@ -90,7 +99,7 @@ public class MockServerConnection extends ServerConnection {
         ContactInfo contactInfo = jsonToContactInfo(jsonDestination.getString("contactInfo")); // Later this will be more than just a String
         Map<Need, Integer> needs = new HashMap<Need, Integer>();
         JSONArray jsonNeeds = jsonDestination.getJSONArray("needs");
-        for (int i=0; i<jsonNeeds.length(); ++i) {
+        for (int i=0; i<jsonNeeds.size(); ++i) {
             JSONObject jsonNeed = jsonNeeds.getJSONObject(i);
             Need need = Need.fromCategory(jsonNeed.getString("type"));
             int quantity = jsonNeed.getInt("quantity");
