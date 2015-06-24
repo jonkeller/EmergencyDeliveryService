@@ -71,7 +71,7 @@ public class TabLayoutActivity extends TabActivity {
 		// Set Tabs background color
 		for (int i = 0; i < 5; i++) {
 			tabHostObj.getTabWidget().getChildAt(i)
-					.setBackgroundColor(Color.parseColor("#CCB485"));
+					.setBackgroundColor(Color.parseColor("#8dc63f"));
 		}
 
 		// tab change listener used to check if maps tab is pressed, if so open
