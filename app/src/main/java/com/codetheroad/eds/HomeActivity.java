@@ -74,7 +74,8 @@ public class HomeActivity extends SharedPref {
 		Marker event2 = map.addMarker(new MarkerOptions()
 				.position(Event2)
 				.title("Alert")
-				.snippet("Item Requested"));
+				.snippet("Item Requested")
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.library64)));
 		Marker event3 = map.addMarker(new MarkerOptions()
 				.position(Event3)
 				.title("Alert")
