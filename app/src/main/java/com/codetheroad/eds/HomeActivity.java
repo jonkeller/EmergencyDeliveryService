@@ -7,6 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -16,6 +17,15 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
 public class HomeActivity extends SharedPref {
 	static final LatLng Atlanta = new LatLng(33.8660485,-84.416913);
 	static final LatLng Event1 = new LatLng(33.9339546,-84.64890548);
@@ -36,6 +46,8 @@ public class HomeActivity extends SharedPref {
 	static final LatLng Event16 = new LatLng(33.89569276,-84.4877032);
 	private GoogleMap map;
 	public static TextView[] homeUpdateArray;
+	private ListView mainListView ;
+	private ArrayAdapter<String> listAdapter ;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,7 +123,40 @@ public class HomeActivity extends SharedPref {
 				.title("Alert")
 				.snippet("Item Requested"));
 
+// Find the ListView resource.
+		mainListView = (ListView) findViewById( R.id.listView );
 
+		// Create and populate a List of planet names.
+		String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
+				"Jupiter", "Saturn", "Uranus", "Neptune"};
+		ArrayList<String> planetList = new ArrayList<String>();
+		planetList.addAll( Arrays.asList(planets) );
+
+		// Create ArrayAdapter using the planet list.
+		listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow, planetList);
+
+		// Add more planets. If you passed a String[] instead of a List<String>
+		// into the ArrayAdapter constructor, you must not add more items.
+		// Otherwise an exception will occur.
+		listAdapter.add( "Ceres" );
+		listAdapter.add( "Pluto" );
+		listAdapter.add( "Haumea" );
+		listAdapter.add( "Makemake" );
+		listAdapter.add( "Eris" );
+
+		// Set the ArrayAdapter as the ListView's adapter.
+		mainListView.setAdapter( listAdapter );
+		mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+									long id) {
+
+				String item = ((TextView) view).getText().toString();
+
+				Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+
+			}
+		});
 		// Move the camera instantly to hamburg with a zoom of 15.
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(Atlanta, 15));
 
