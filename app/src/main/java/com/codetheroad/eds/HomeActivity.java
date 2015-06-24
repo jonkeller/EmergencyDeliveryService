@@ -18,8 +18,15 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.TileOverlayOptions;
+import com.google.android.gms.maps.model.TileProvider;
+import com.google.android.gms.maps.model.UrlTileProvider;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -49,7 +56,8 @@ public class HomeActivity extends SharedPref {
 	public static TextView[] homeUpdateArray;
 	private ListView mainListView ;
 	private ArrayAdapter<String> listAdapter ;
-
+	private static final String MapLink =
+			"http://undefined.tile.openweathermap.org/map/rain/%d/%d/%d.png";
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
@@ -141,9 +149,9 @@ public class HomeActivity extends SharedPref {
 		// Otherwise an exception will occur.
 		listAdapter.add( "Ceres" );
 		listAdapter.add( "Pluto" );
-		listAdapter.add( "Haumea" );
-		listAdapter.add( "Makemake" );
-		listAdapter.add( "Eris" );
+		listAdapter.add("Haumea");
+		listAdapter.add("Makemake");
+		listAdapter.add("Eris");
 
 		// Set the ArrayAdapter as the ListView's adapter.
 		mainListView.setAdapter( listAdapter );
@@ -159,60 +167,48 @@ public class HomeActivity extends SharedPref {
 				startActivity(intent);
 			}
 		});
+
+		setUpMap();
+	}
+//	private void setUpMapIfNeeded() {
+//		// Do a null check to confirm that we have not already instantiated the map.
+//		if (mMap == null) {
+//			// Try to obtain the map from the SupportMapFragment.
+//			mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+//					.getMap();
+//			// Check if we were successful in obtaining the map.
+//			if (mMap != null) {
+//				setUpMap();
+//			}
+//		}
+//	}
+
+	private void setUpMap() {
+		//map.setMapType(GoogleMap.MAP_TYPE_NONE);
 		// Move the camera instantly to hamburg with a zoom of 15.
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(Atlanta, 15));
 
 		// Zoom in, animating the camera.
 		map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+		TileProvider tileProvider = new UrlTileProvider(256, 256) {
+			@Override
+			public synchronized URL getTileUrl(int x, int y, int zoom) {
+
+
+
+				String s = String.format( MapLink, zoom, x, y);
+				URL url = null;
+				try {
+					url = new URL(s);
+				} catch (MalformedURLException e) {
+					throw new AssertionError(e);
+				}
+				return url;
+			}
+		};
+
+		map.addTileOverlay(new TileOverlayOptions().tileProvider(tileProvider));
 	}
-
-
-//	private void populateFields() {
-//		// retrieve data from shared preferences and populated edit text fields
-//		homeUpdateArray[0]
-//				.setText(String.format("%.2f", Double.parseDouble(getSavedData(
-//						homeHourlyNoGas, HomeActivity.this))));
-//		homeUpdateArray[1].setText(String.format("%.2f", Double
-//				.parseDouble(getSavedData(homeHourlyWage, HomeActivity.this))));
-//		homeUpdateArray[2].setText(String.format("%.2f", Double
-//				.parseDouble(getSavedData(homeTotalTips, HomeActivity.this))));
-//		homeUpdateArray[3].setText(String.format("%.2f", Double
-//				.parseDouble(getSavedData(homeTotalHours, HomeActivity.this))));
-//		homeUpdateArray[4]
-//				.setText(String.format("%.2f", Double.parseDouble(getSavedData(
-//						homeTotalIncome, HomeActivity.this))));
-//	}
-//
-//	private void connectVariables() {
-//		// Connect XML layout with Java
-//		homeUpdateArray = new TextView[] { (TextView) findViewById(R.id.Home1),
-//				(TextView) findViewById(R.id.Home2),
-//				(TextView) findViewById(R.id.Home3),
-//				(TextView) findViewById(R.id.Home4),
-//				(TextView) findViewById(R.id.Home5) };
-//		Button historyButton = (Button) findViewById(R.id.HistoryButton);
-//		Button calcButton = (Button) findViewById(R.id.CalcButton);
-//		historyButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// open history activity when history button is checked
-//				Intent i = new Intent("com.davidtunnell.deliverypal.HISTORY");
-//				startActivity(i);
-//			}
-//		});
-//		calcButton.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				// open default calculator when calculator button is checked
-//				Intent calcIntent = new Intent();
-//				calcIntent.setClassName("com.android.calculator2",
-//						"com.android.calculator2.Calculator");
-//				startActivity(calcIntent);
-//			}
-//		});
-//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
