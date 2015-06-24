@@ -9,9 +9,32 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 public class HomeActivity extends SharedPref {
-
+	static final LatLng Atlanta = new LatLng(33.8660485,-84.416913);
+	static final LatLng Event1 = new LatLng(33.9339546,-84.64890548);
+	static final LatLng Event2 = new LatLng(33.88506299,-84.40306652);
+	static final LatLng Event3 = new LatLng(33.90341149,-84.63043663);
+	static final LatLng Event4 = new LatLng(33.86544326,-84.43061938);
+	static final LatLng Event5 = new LatLng(33.99616945,-84.55696643);
+	static final LatLng Event6 = new LatLng(33.86386961,-84.50127896);
+	static final LatLng Event7 = new LatLng(33.06811381,-84.48476484);
+	static final LatLng Event8 = new LatLng(33.07075946,-84.46473602);
+	static final LatLng Event9 = new LatLng(33.82644794, -84.55055915);
+	static final LatLng Event10 = new LatLng(33.05227635,-84.43634233);
+	static final LatLng Event11 = new LatLng(33.95583195,-84.55928679);
+	static final LatLng Event12 = new LatLng(33.88649901,-84.62402609);
+	static final LatLng Event13 = new LatLng(33.95826448,-84.53039956);
+	static final LatLng Event14 = new LatLng(33.05630753,-84.5503126);
+	static final LatLng Event15 = new LatLng(33.03118528,-84.66236267);
+	static final LatLng Event16 = new LatLng(33.89569276,-84.4877032);
+	private GoogleMap map;
 	public static TextView[] homeUpdateArray;
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +42,81 @@ public class HomeActivity extends SharedPref {
 		setContentView(R.layout.home_layout);
 	//	connectVariables();
 		//populateFields();
+		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.fragment))
+				.getMap();
+		Marker atlanta = map.addMarker(new MarkerOptions().position(Atlanta)
+				.title("Our Location"));
+		Marker event1 = map.addMarker(new MarkerOptions()
+				.position(Event1)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event2 = map.addMarker(new MarkerOptions()
+				.position(Event2)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event3 = map.addMarker(new MarkerOptions()
+				.position(Event3)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event4 = map.addMarker(new MarkerOptions()
+				.position(Event4)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event5 = map.addMarker(new MarkerOptions()
+				.position(Event5)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event6 = map.addMarker(new MarkerOptions()
+				.position(Event6)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event7 = map.addMarker(new MarkerOptions()
+				.position(Event7)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event8 = map.addMarker(new MarkerOptions()
+				.position(Event8)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event9 = map.addMarker(new MarkerOptions()
+				.position(Event9)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event10 = map.addMarker(new MarkerOptions()
+				.position(Event10)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event11 = map.addMarker(new MarkerOptions()
+				.position(Event11)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event12 = map.addMarker(new MarkerOptions()
+				.position(Event12)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event13 = map.addMarker(new MarkerOptions()
+				.position(Event13)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event14 = map.addMarker(new MarkerOptions()
+				.position(Event14)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event15 = map.addMarker(new MarkerOptions()
+				.position(Event15)
+				.title("Alert")
+				.snippet("Item Requested"));
+		Marker event16 = map.addMarker(new MarkerOptions()
+				.position(Event16)
+				.title("Alert")
+				.snippet("Item Requested"));
+
+
+		// Move the camera instantly to hamburg with a zoom of 15.
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(Atlanta, 15));
+
+		// Zoom in, animating the camera.
+		map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 	}
 
 
