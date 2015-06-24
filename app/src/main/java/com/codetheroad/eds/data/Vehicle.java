@@ -60,8 +60,17 @@ public class Vehicle {
         return destinations;
     }
 
-    public void addDestinations(Destination destination) {
+    public void beginNavigationToNextDestination() {
+        // TODO: Would notify user that help is on the way
+    }
+
+    public void addDestination(Destination destination) {
+        // TODO Check if this destination already exists, if so then merge needs
         this.destinations.add(destination);
+    }
+
+    public void removeNeedsFromDestination() {
+        // TODO
     }
 
     public void deliver(LatLng deliveryLocation) {
