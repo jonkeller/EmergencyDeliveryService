@@ -26,7 +26,7 @@ import java.util.Map;
 public class MockServerConnection extends ServerConnection {
     protected String DATA_FILENAME = "mock_data.json";
     AssetManager assetManager;
-    private Vehicle singletonVehicle = null;
+    private static Vehicle singletonVehicle = null;
 
     MockServerConnection(AssetManager am) {
         this.assetManager = am;
