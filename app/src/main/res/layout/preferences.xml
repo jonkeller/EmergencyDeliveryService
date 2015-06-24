@@ -47,15 +47,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:typeface="serif" />
 
-        <CheckBox
-            android:id="@+id/wageCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1"
-            android:layout_marginTop="19dp"
-            android:text="Check if you get paid a different rate on the road" />
-
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
