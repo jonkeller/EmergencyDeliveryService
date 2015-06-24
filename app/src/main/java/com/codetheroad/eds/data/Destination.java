@@ -2,14 +2,18 @@ package com.codetheroad.eds.data;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import org.json.JSONObject;
+
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Destination {
     protected LatLng location;
     protected ContactInfo contactInfo;
-    protected List<Need> needs;
+    protected Map<Need, Integer> needs;
 
-    public Destination(LatLng location, List<Need> needs, ContactInfo contactInfo) {
+    public Destination(LatLng location, Map<Need, Integer> needs, ContactInfo contactInfo) {
         this.location = location;
         this.contactInfo = contactInfo;
         this.needs = needs;
@@ -23,18 +27,31 @@ public class Destination {
         return contactInfo;
     }
 
-    public List<Need> getNeeds() {
+    public Map<Need, Integer> getNeeds() {
         return needs;
     }
 
     /** This destination now needs something else */
-    public void addNeed(Need need) {
-        needs.add(need);
+    public void addNeed(Need need, int quantity) {
+        if (needs.containsKey(need)) {
+            int previousQuantity = needs.get(need);
+            needs.put(need, quantity + previousQuantity);
+        } else {
+            needs.put(need, quantity);
+        }
     }
 
     /** This destination stopped needing something */
-    public void removeNeed(Need need) {
-        needs.remove(need);
+    public void removeNeed(Need need, int quantity) {
+        if (needs.containsKey(need)) {
+            int previousQuantity = needs.get(need);
+            int newQuantity = previousQuantity - quantity;
+            if (newQuantity > 0) {
+                needs.put(need, newQuantity);
+            } else {
+                needs.remove(need);
+            }
+        }
     }
 
     /**
@@ -43,12 +60,17 @@ public class Destination {
      * a location with 2 of the same injuries.
      */
     public int getPriority() {
-        int priority = Need.MIN_PRIORITY;
-        for (Need need : needs) {
-            if (need.getPriority() > priority) {
-                priority = need.getPriority();
+        int maxPriority = Need.MIN_PRIORITY;
+
+        Iterator<Map.Entry<Need, Integer>> it = needs.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Need, Integer> pair = it.next();
+            int thisPriority = pair.getKey().getPriority();
+            if (thisPriority > maxPriority) {
+                maxPriority = thisPriority;
             }
         }
-        return priority;
+
+        return maxPriority;
     }
 }
