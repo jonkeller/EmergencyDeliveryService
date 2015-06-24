@@ -15,13 +15,13 @@ public class Need {
     public static final String MEAL = "meal";
 
     /** What items+quantities needed to satisfy one occurrence of this need */
-    protected Map<Item, Integer> items;
+    protected Map<Item.Type, Integer> itemTypes;
 
     /** The triage priority of satisfying this need */
     protected int priority;
 
-    public Need(Map<Item, Integer> items, int priority) {
-        this.items = items;
+    public Need(Map<Item.Type, Integer> itemTypes, int priority) {
+        this.itemTypes = itemTypes;
         this.priority = priority;
     }
 
@@ -29,13 +29,13 @@ public class Need {
         return priority;
     }
 
-    public Map<Item, Integer> getItems() {
-        return items;
+    public Map<Item.Type, Integer> getItems() {
+        return itemTypes;
     }
 
     // Convenience method
-    public int getQuantityNeededOf(Item item) {
-        return items.get(item);
+    public int getQuantityNeededOf(Item.Type itemType) {
+        return itemTypes.get(itemType);
     }
 
     /**
@@ -43,42 +43,43 @@ public class Need {
      * TODO: Make String constants for all of these.
      */
     public static Need fromCategory(String category) {
-        Map<Item, Integer> items = new HashMap<Item, Integer>();
+        Map<Item.Type, Integer> itemTypes = new HashMap<Item.Type, Integer>();
         int priority = MIN_PRIORITY;
         if (SHELTER.equals(category)) {
-            items.put(new Item("tarp"), 1);
-            items.put(new Item("tent"), 1);
-            items.put(new Item("flashlight"), 1);
-            items.put(new Item("camp stove"), 1);
-            items.put(new Item("pillow"), 2);
-            items.put(new Item("sleeping bag"), 2);
-            items.put(new Item("duct tape"), 4);
+            itemTypes.put(Item.Type.TARP, 1);
+            itemTypes.put(Item.Type.TENT, 1);
+            itemTypes.put(Item.Type.FLASHLIGHT, 1);
+            itemTypes.put(Item.Type.CAMP_STOVE, 1);
+            itemTypes.put(Item.Type.PILLOW, 2);
+            itemTypes.put(Item.Type.SLEEPING_BAG, 2);
+            itemTypes.put(Item.Type.DUCT_TAPE, 4);
             priority = 6;
         } else if (COLD.equals(category)) {
-            items.put(new Item("blanket"), 1);
-            items.put(new Item("clothing"), 2);
-            items.put(new Item("gloves"), 1);
+            itemTypes.put(Item.Type.BLANKET, 1);
+            itemTypes.put(Item.Type.CLOTHING, 2);
+            itemTypes.put(Item.Type.GLOVES, 1);
             priority = 5;
         } else if (HEAT.equals(category)) {
-            items.put(new Item("water"), 12);
-            items.put(new Item("sunscreen"), 1);
+            itemTypes.put(Item.Type.WATER, 12);
+            itemTypes.put(Item.Type.SUNSCREEN, 1);
             priority = 4;
         } else if (HYGIENE.equals(category)) {
-            items.put(new Item("hygiene kit"), 4);
-            items.put(new Item("toilet paper"), 3);
+            itemTypes.put(Item.Type.HYGIENE_KIT, 4);
+            itemTypes.put(Item.Type.TOILET_PAPER, 3);
+            itemTypes.put(Item.Type.TOWEL, 1);
             priority = 2;
         } else if (MEDICAL.equals(category)) {
-            items.put(new Item("large bandage"), 4);
-            items.put(new Item("first aid kit"), 1);
+            itemTypes.put(Item.Type.LARGE_BANDAGE, 4);
+            itemTypes.put(Item.Type.FIRST_AID_KIT, 1);
             priority = 10;
         } else if (MEAL.equals(category)) {
-            items.put(new Item("food"), 6);
-            items.put(new Item("water"), 12);
-            items.put(new Item("baby formula"), 4);
+            itemTypes.put(Item.Type.FOOD, 6);
+            itemTypes.put(Item.Type.WATER, 12);
+            itemTypes.put(Item.Type.BABY_FORMULA, 4);
             priority = 8;
         } else {
             // TODO throw...
         }
-        return new Need(items, priority);
+        return new Need(itemTypes, priority);
     }
 }
