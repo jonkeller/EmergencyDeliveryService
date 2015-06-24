@@ -34,13 +34,13 @@ public class MockServerConnection extends ServerConnection {
         LatLng location = jsonToLocation(json.getJSONArray("location"));
 
         // Read items on board
-        Map<Item, Integer> itemsOnBoard = new HashMap<Item, Integer>();
+        Map<Item.Type, Integer> itemTypesOnBoard = new HashMap<Item.Type, Integer>();
         JSONArray jsonItemsOnBoard = json.getJSONArray("itemsOnBoard");
         for (int i=0; i<jsonItemsOnBoard.length(); ++i) {
             JSONObject jsonItemAndQuantity = jsonItemsOnBoard.getJSONObject(i);
             int quantity = jsonItemAndQuantity.getInt("quantity");
-            Item item = jsonToItem(jsonItemAndQuantity.getJSONObject("item"));
-            itemsOnBoard.put(item, quantity);
+            Item.Type itemType = jsonToItemType(jsonItemAndQuantity.getJSONObject("item"));
+            itemTypesOnBoard.put(itemType, quantity);
         }
 
         // Read destinations
@@ -52,7 +52,7 @@ public class MockServerConnection extends ServerConnection {
             destinations.add(destination);
         }
 
-        return new Vehicle(location, itemsOnBoard, destinations);
+        return new Vehicle(location, itemTypesOnBoard, destinations);
     }
 
     protected LatLng jsonToLocation(JSONArray jsonLocation) throws JSONException {
@@ -60,9 +60,28 @@ public class MockServerConnection extends ServerConnection {
     }
 
     // { description: "water" }
-    protected Item jsonToItem(JSONObject jsonItem) throws JSONException {
+    protected Item.Type jsonToItemType(JSONObject jsonItem) throws JSONException {
         String description = jsonItem.getString("description");
-        return new Item(description);
+        if ("tarp".equals(description)) { return Item.Type.TARP; }
+        if ("tent".equals(description)) { return Item.Type.TENT; }
+        if ("flashlight".equals(description)) { return Item.Type.FLASHLIGHT; }
+        if ("camp stove".equals(description)) { return Item.Type.CAMP_STOVE; }
+        if ("pillow".equals(description)) { return Item.Type.PILLOW; }
+        if ("sleeping bag".equals(description)) { return Item.Type.SLEEPING_BAG; }
+        if ("duct tape".equals(description)) { return Item.Type.DUCT_TAPE; }
+        if ("blanket".equals(description)) { return Item.Type.BLANKET; }
+        if ("clothing".equals(description)) { return Item.Type.CLOTHING; }
+        if ("gloves".equals(description)) { return Item.Type.GLOVES; }
+        if ("water".equals(description)) { return Item.Type.WATER; }
+        if ("sunscreen".equals(description)) { return Item.Type.SUNSCREEN; }
+        if ("hygiene kit".equals(description)) { return Item.Type.HYGIENE_KIT; }
+        if ("toilet paper".equals(description)) { return Item.Type.TOILET_PAPER; }
+        if ("towel".equals(description)) { return Item.Type.TOWEL; }
+        if ("large bandage".equals(description)) { return Item.Type.LARGE_BANDAGE; }
+        if ("first aid kit".equals(description)) { return Item.Type.FIRST_AID_KIT; }
+        if ("food".equals(description)) { return Item.Type.FOOD; }
+        if ("baby formula".equals(description)) { return Item.Type.BABY_FORMULA; }
+        return null; // TODO
     }
 
     // { location: [33.76, 84.4], contactInfo: "770-555-9058", needs: [ { type: "shelter", quantity: 1 }, { type: "cold exposure", quantity: 2 } ] }
