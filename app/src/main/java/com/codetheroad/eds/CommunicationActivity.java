@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.codetheroad.eds.data.Destination;
 import com.codetheroad.eds.data.ServerConnection;
 import com.codetheroad.eds.data.Vehicle;
+import com.google.android.gms.maps.model.LatLng;
 
 
 public class CommunicationActivity extends ManipulateInput {
@@ -28,6 +29,33 @@ public class CommunicationActivity extends ManipulateInput {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.communcation_layout);
+
+		// Hook up buttons
+		Button contactButton = (Button) findViewById(R.id.button1);
+		contactButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+				smsIntent.setType("vnd.android-dir/mms-sms");
+				smsIntent.putExtra("address", "4046106603");
+				smsIntent.putExtra("sms_body", "Where are you?");
+				startActivity(smsIntent);
+			}
+		});
+
+		Button deliverButton = (Button) findViewById(R.id.button2);
+		deliverButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				LatLng deliveryLocation = vehicle.getDestinations().get(0).getLocation();
+				vehicle.deliver(deliveryLocation);
+				populateFields();
+			}
+		});
+	}
+
+	public void onResume() {
+		super.onResume();
 		try {
 			vehicle = ServerConnection.connect(this.getAssets()).getVehicle();
 			populateFields();
@@ -36,7 +64,7 @@ public class CommunicationActivity extends ManipulateInput {
 			t.printStackTrace();
 		}
 		//	connectVariables();
-        populateFields();
+		populateFields();
 	}
 
 	private void populateFields() {
@@ -50,21 +78,6 @@ public class CommunicationActivity extends ManipulateInput {
 		TextView txtItemsBeingDelivered = (TextView) findViewById(R.id.txtItemsBeingDelivered);
 		String itemsBeingDelivered = vehicle.getItemsBeingDeliveredAsString();
 		txtItemsBeingDelivered.setText(itemsBeingDelivered);
-
-		Button button = (Button) findViewById(R.id.button1);
-
-		button.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View view) {
-				Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-				smsIntent.setType("vnd.android-dir/mms-sms");
-				smsIntent.putExtra("address", "4046106603");
-				smsIntent.putExtra("sms_body","Where are you?");
-				startActivity(smsIntent);
-			}
-
-		});
 	}
 
 

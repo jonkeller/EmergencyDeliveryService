@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SharedPref extends Activity {
 
