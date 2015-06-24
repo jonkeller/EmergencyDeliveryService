@@ -58,7 +58,6 @@ public class SharedPref extends Activity {
 	public static final String homeTotalTips = "Home_Total_Tips";
 	public static final String homeTotalHours = "Home_Total_Hours";
 	public static final String homeTotalIncome = "Home_Total_Income";
-	public static final String wageCheckBox = "Wage_Check_Box";
 	public static final String checkPreviousWageBox = "Wage_Previous_Box";
 
 	public static void saveToSP(String key, String value, Context context) {
@@ -297,9 +296,6 @@ public class SharedPref extends Activity {
 		}
 		if (getSavedData(homeTotalIncome, this) == null) {
 			saveToSP(homeTotalIncome, "0", this);
-		}
-		if (getSavedData(wageCheckBox, this) == null) {
-			saveToSP(wageCheckBox, "false", this);
 		}
 		if (getSavedData(checkPreviousWageBox, this) == null) {
 			saveToSP(checkPreviousWageBox, "false", this);
