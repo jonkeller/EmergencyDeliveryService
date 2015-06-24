@@ -158,11 +158,11 @@ public class LoggingActivity extends ManipulateInput {
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
 						// set edit text to calculated sum
-						WageActivity.tipsArray[0].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[0].setText(String.format("%.2f",
 								totalWithFeeSum));
 						// set focus to the exported value than now populates
 						// the edit text in the wage activity
-						WageActivity.tipsArray[0].requestFocus();
+						CommunicationActivity.tipsArray[0].requestFocus();
 					} else {
 						// set edit text to calculated sum
 						WageCheckedActivity.tipsCheckedArray[0].setText(String
@@ -179,9 +179,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[1].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[1].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[1].requestFocus();
+						CommunicationActivity.tipsArray[1].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[1].setText(String
 								.format("%.2f", totalWithFeeSum));
@@ -194,9 +194,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[2].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[2].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[2].requestFocus();
+						CommunicationActivity.tipsArray[2].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[2].setText(String
 								.format("%.2f", totalWithFeeSum));
@@ -209,9 +209,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[3].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[3].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[3].requestFocus();
+						CommunicationActivity.tipsArray[3].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[3].setText(String
 								.format("%.2f", totalWithFeeSum));
@@ -224,9 +224,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[4].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[4].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[4].requestFocus();
+						CommunicationActivity.tipsArray[4].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[4].setText(String
 								.format("%.2f", totalWithFeeSum));
@@ -239,9 +239,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[5].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[5].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[5].requestFocus();
+						CommunicationActivity.tipsArray[5].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[5].setText(String
 								.format("%.2f", totalWithFeeSum));
@@ -254,9 +254,9 @@ public class LoggingActivity extends ManipulateInput {
 							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 							LoggingActivity.this)) == false) {
-						WageActivity.tipsArray[6].setText(String.format("%.2f",
+						CommunicationActivity.tipsArray[6].setText(String.format("%.2f",
 								totalWithFeeSum));
-						WageActivity.tipsArray[6].requestFocus();
+						CommunicationActivity.tipsArray[6].requestFocus();
 					} else {
 						WageCheckedActivity.tipsCheckedArray[6].setText(String
 								.format("%.2f", totalWithFeeSum));

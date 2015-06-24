@@ -13,14 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class WageActivity extends ManipulateInput {
+public class CommunicationActivity extends ManipulateInput {
 	public static EditText[] tipsArray;
 	EditText[] hoursArray, gasArray;
 	Button save, finish;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.wage_layout);
+		setContentView(R.layout.communcation_layout);
 		connectVariables();
 		populateFields();
 	}
@@ -80,15 +80,15 @@ public class WageActivity extends ManipulateInput {
 							tipSum, gasSum);
 					// Save and publish results to home page
 					saveToSP(homeHourlyNoGas, Double.toString(hourlyBeforeGas),
-							WageActivity.this);
+							CommunicationActivity.this);
 					saveToSP(homeHourlyWage, Double.toString(hourlyAfterGas),
-							WageActivity.this);
+							CommunicationActivity.this);
 					saveToSP(homeTotalTips, Double.toString(tipSum),
-							WageActivity.this);
+							CommunicationActivity.this);
 					saveToSP(homeTotalHours, Double.toString(hoursSum),
-							WageActivity.this);
+							CommunicationActivity.this);
 					saveToSP(homeTotalIncome, Double.toString(totalIncome),
-							WageActivity.this);
+							CommunicationActivity.this);
 					HomeActivity.homeUpdateArray[0].setText(String.format(
 							"%.2f", hourlyBeforeGas));
 					HomeActivity.homeUpdateArray[1].setText(String.format(
@@ -109,13 +109,13 @@ public class WageActivity extends ManipulateInput {
 				// pull counter from shared preferences to be used to correctly
 				// order they dynamic history activity
 				int histCounter = Integer.parseInt(getSavedData(historyCounter,
-						WageActivity.this));
+						CommunicationActivity.this));
 				// these strings are used as new shared preference slots/keys
 				String histSave = historySave + histCounter;
 				String dateSave = calenderSave + histCounter;
 				// saves date in Month, day, year format from method in
 				// ManipulateInput.java
-				saveToSP(dateSave, findDate(), WageActivity.this);
+				saveToSP(dateSave, findDate(), CommunicationActivity.this);
 				// Sum while checking for errors of Edit Texts in activity
 				double tipSum = ErrorCheckSum(tipsArray);
 				double hoursSum = ErrorCheckSum(hoursArray);
@@ -143,9 +143,9 @@ public class WageActivity extends ManipulateInput {
 							+ hourlyAfterGas + "," + tipSum + "," + hoursSum
 							+ "," + totalIncome;
 					// Save previous calculations
-					saveToSP(histSave, dataSeperatedByComma, WageActivity.this);
+					saveToSP(histSave, dataSeperatedByComma, CommunicationActivity.this);
 					saveToSP(historyCounter, Integer.toString(histCounter + 1),
-							WageActivity.this);
+							CommunicationActivity.this);
 					// clear Edit Texts in activity
 					saveEditTextArray(loggingSave, tipsArray, "0");
 					saveEditTextArray(hoursSave, hoursArray, "0");
@@ -155,11 +155,11 @@ public class WageActivity extends ManipulateInput {
 						HomeActivity.homeUpdateArray[i].setText("0.00");
 					}
 					// save 0's to shared preferences for home page
-					saveToSP(homeHourlyNoGas, "0.00", WageActivity.this);
-					saveToSP(homeHourlyWage, "0.00", WageActivity.this);
-					saveToSP(homeTotalTips, "0.00", WageActivity.this);
-					saveToSP(homeTotalHours, "0.00", WageActivity.this);
-					saveToSP(homeTotalIncome, "0.00", WageActivity.this);
+					saveToSP(homeHourlyNoGas, "0.00", CommunicationActivity.this);
+					saveToSP(homeHourlyWage, "0.00", CommunicationActivity.this);
+					saveToSP(homeTotalTips, "0.00", CommunicationActivity.this);
+					saveToSP(homeTotalHours, "0.00", CommunicationActivity.this);
+					saveToSP(homeTotalIncome, "0.00", CommunicationActivity.this);
 					// open history activity what will dynamically update with
 					// saved calculations
 					Intent i = new Intent(

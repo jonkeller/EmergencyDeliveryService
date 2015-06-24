@@ -101,7 +101,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.codetheroad.eds.WageActivity" />
+        <activity android:name=".CommunicationActivity" />
         <activity android:name="com.codetheroad.eds.WageCheckedActivity" />
         <activity android:name="com.codetheroad.eds.MapsActivity" />
         <activity android:name=".InventoryActivity" />

@@ -14,8 +14,8 @@ import android.widget.TabHost.TabSpec;
 public class TabLayoutActivity extends TabActivity {
 
 	public static TabHost tabHostObj;
-	public TabSpec wageSpec;
-	public Intent wageIntent;
+	public TabSpec communicationSpec;
+	public Intent communicationIntent;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,18 +38,18 @@ public class TabLayoutActivity extends TabActivity {
 		// the appropriate activity based on the users choice
 		if (Boolean.valueOf(getSavedData("Wage_Check_Box",
 				TabLayoutActivity.this))) {
-			wageSpec = tabHostObj.newTabSpec("Wage");
-			wageSpec.setIndicator("",
+			communicationSpec = tabHostObj.newTabSpec("Communication");
+			communicationSpec.setIndicator("",
 					getResources().getDrawable(R.drawable.icon_wage_tab));
-			wageIntent = new Intent(this, WageCheckedActivity.class);
+			communicationIntent = new Intent(this, WageCheckedActivity.class);
 		} else {
-			wageSpec = tabHostObj.newTabSpec("Wage");
-			wageSpec.setIndicator("",
+			communicationSpec = tabHostObj.newTabSpec("Wage");
+			communicationSpec.setIndicator("",
 					getResources().getDrawable(R.drawable.icon_wage_tab));
-			wageIntent = new Intent(this, WageActivity.class);
+			communicationIntent = new Intent(this, CommunicationActivity.class);
 
 		}
-		wageSpec.setContent(wageIntent);
+		communicationSpec.setContent(communicationIntent);
 
 		TabSpec homeSpec = tabHostObj.newTabSpec("Home");
 		homeSpec.setIndicator("",
@@ -71,7 +71,7 @@ public class TabLayoutActivity extends TabActivity {
 
 		// Adding all TabSpecObj to TabHost
 		tabHostObj.addTab(mapsSpec);
-		tabHostObj.addTab(wageSpec);
+		tabHostObj.addTab(communicationSpec);
 		tabHostObj.addTab(homeSpec);
 		tabHostObj.addTab(inventorySpec);
 		tabHostObj.addTab(loggingSpec);
