@@ -26,12 +26,20 @@ import java.util.Map;
 public class MockServerConnection extends ServerConnection {
     protected String DATA_FILENAME = "mock_data.json";
     AssetManager assetManager;
+    private Vehicle singletonVehicle = null;
 
     MockServerConnection(AssetManager am) {
         this.assetManager = am;
     }
 
     public Vehicle getVehicle() throws Exception {
+        if (null == singletonVehicle) {
+            singletonVehicle = createVehicle();
+        }
+        return singletonVehicle;
+    }
+
+    private Vehicle createVehicle() throws Exception {
         InputStream is = assetManager.open(DATA_FILENAME);
         String jsonTxt = IOUtils.toString(is); is.close();
         System.out.println(jsonTxt);
