@@ -33,7 +33,7 @@ public class MockServerConnection extends ServerConnection {
 
     public Vehicle getVehicle() throws Exception {
         InputStream is = assetManager.open(DATA_FILENAME);
-        String jsonTxt = IOUtils.toString(is);
+        String jsonTxt = IOUtils.toString(is); is.close();
         System.out.println(jsonTxt);
         JSONObject json = (JSONObject) JSONSerializer.toJSON( jsonTxt );
 

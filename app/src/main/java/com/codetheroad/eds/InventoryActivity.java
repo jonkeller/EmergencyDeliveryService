@@ -8,107 +8,154 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.codetheroad.eds.data.Item;
+import com.codetheroad.eds.data.ServerConnection;
+import com.codetheroad.eds.data.Vehicle;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class InventoryActivity extends SharedPref {
 
-	EditText[] nameArray, codeArray;
+	TextView[] nameArray, codeArray;
+	Vehicle vehicle;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_layout);
-		connectVariables();
-		populateFields();
-
+		//connectVariables();
 	}
 
-	private void connectVariables() {
-		// Connect XML layout with Java
-		nameArray = new EditText[] { (EditText) findViewById(R.id.subName1),
-				(EditText) findViewById(R.id.subName2),
-				(EditText) findViewById(R.id.subName3),
-				(EditText) findViewById(R.id.subName4),
-				(EditText) findViewById(R.id.subName5),
-				(EditText) findViewById(R.id.subName6),
-				(EditText) findViewById(R.id.subName7),
-				(EditText) findViewById(R.id.subName8),
-				(EditText) findViewById(R.id.subName9),
-				(EditText) findViewById(R.id.subName10),
-				(EditText) findViewById(R.id.subName11),
-				(EditText) findViewById(R.id.subName12),
-				(EditText) findViewById(R.id.subName13),
-				(EditText) findViewById(R.id.subName14),
-				(EditText) findViewById(R.id.subName15),
-				(EditText) findViewById(R.id.subName16),
-				(EditText) findViewById(R.id.subName17),
-				(EditText) findViewById(R.id.subName18),
-				(EditText) findViewById(R.id.subName19),
-				(EditText) findViewById(R.id.subName20),
-				(EditText) findViewById(R.id.subName21),
-				(EditText) findViewById(R.id.subName22),
-				(EditText) findViewById(R.id.subName23),
-				(EditText) findViewById(R.id.subName24),
-				(EditText) findViewById(R.id.subName25),
-				(EditText) findViewById(R.id.subName26),
-				(EditText) findViewById(R.id.subName27),
-				(EditText) findViewById(R.id.subName28),
-				(EditText) findViewById(R.id.subName29),
-				(EditText) findViewById(R.id.subName30), };
-
-		codeArray = new EditText[] { (EditText) findViewById(R.id.subCode1),
-				(EditText) findViewById(R.id.subCode2),
-				(EditText) findViewById(R.id.subCode3),
-				(EditText) findViewById(R.id.subCode4),
-				(EditText) findViewById(R.id.subCode5),
-				(EditText) findViewById(R.id.subCode6),
-				(EditText) findViewById(R.id.subCode7),
-				(EditText) findViewById(R.id.subCode8),
-				(EditText) findViewById(R.id.subCode9),
-				(EditText) findViewById(R.id.subCode10),
-				(EditText) findViewById(R.id.subCode11),
-				(EditText) findViewById(R.id.subCode12),
-				(EditText) findViewById(R.id.subCode13),
-				(EditText) findViewById(R.id.subCode14),
-				(EditText) findViewById(R.id.subCode15),
-				(EditText) findViewById(R.id.subCode16),
-				(EditText) findViewById(R.id.subCode17),
-				(EditText) findViewById(R.id.subCode18),
-				(EditText) findViewById(R.id.subCode19),
-				(EditText) findViewById(R.id.subCode20),
-				(EditText) findViewById(R.id.subCode21),
-				(EditText) findViewById(R.id.subCode22),
-				(EditText) findViewById(R.id.subCode23),
-				(EditText) findViewById(R.id.subCode24),
-				(EditText) findViewById(R.id.subCode25),
-				(EditText) findViewById(R.id.subCode26),
-				(EditText) findViewById(R.id.subCode27),
-				(EditText) findViewById(R.id.subCode28),
-				(EditText) findViewById(R.id.subCode29),
-				(EditText) findViewById(R.id.subCode30) };
-
-		Button save = (Button) findViewById(R.id.saveButton);
-		// set on click listener
-		save.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// save edit text fields
-				saveEditTextArray(subName, nameArray, null);
-				saveEditTextArray(subCode, codeArray, null);
-				// tell user they are saved
-				Toast.makeText(getApplicationContext(), "Saved",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
+	@Override
+	public void onResume() {
+		super.onResume();
+		try {
+			vehicle = ServerConnection.connect(this.getAssets()).getVehicle();
+			populateFields();
+		} catch (Throwable t) {
+			// Since it's just JSON data, should absolutely never get here.
+			t.printStackTrace();
+		}
 	}
 
-	//
 	private void populateFields() {
 		// retrieve data from shared preferences and populated edit text fields
-		getSavedEditTextArray(subName, nameArray);
-		getSavedEditTextArray(subCode, codeArray);
+		//getSavedTextViewArray(subName, nameArray);
+		//getSavedTextViewArray(subCode, codeArray);
+		Map<Item.Type, Integer> inventory = vehicle.getItems();
+
+		Iterator<Map.Entry<Item.Type, Integer>> it = inventory.entrySet().iterator();
+
+		// This is shameful
+		if (it.hasNext()) { populateField(R.id.subName1, R.id.subCode1, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName2, R.id.subCode2, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName3, R.id.subCode3, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName4, R.id.subCode4, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName5, R.id.subCode5, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName6, R.id.subCode6, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName7, R.id.subCode7, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName8, R.id.subCode8, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName9, R.id.subCode9, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName10, R.id.subCode10, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName11, R.id.subCode11, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName12, R.id.subCode12, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName13, R.id.subCode13, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName14, R.id.subCode14, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName15, R.id.subCode15, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName16, R.id.subCode16, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName17, R.id.subCode17, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName18, R.id.subCode18, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName19, R.id.subCode19, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName20, R.id.subCode20, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName21, R.id.subCode21, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName22, R.id.subCode22, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName23, R.id.subCode23, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName24, R.id.subCode24, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName25, R.id.subCode25, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName26, R.id.subCode26, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName27, R.id.subCode27, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName28, R.id.subCode28, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName29, R.id.subCode29, it.next()); }
+		if (it.hasNext()) { populateField(R.id.subName30, R.id.subCode30, it.next()); }
 	}
+
+	private void populateField(int subName, int subCode, Map.Entry<Item.Type, Integer> entry) {
+		Item.Type itemType = entry.getKey();
+		int quantity = entry.getValue();
+		((TextView)findViewById(subName)).setText(Item.typeToString(itemType));
+		((TextView)findViewById(subCode)).setText(Integer.toString(quantity));
+	}
+
+	/*
+	private void connectVariables() {
+		// Connect XML layout with Java
+		nameArray = new TextView[] { (TextView) findViewById(R.id.subName1),
+				(TextView) findViewById(R.id.subName2),
+				(TextView) findViewById(R.id.subName3),
+				(TextView) findViewById(R.id.subName4),
+				(TextView) findViewById(R.id.subName5),
+				(TextView) findViewById(R.id.subName6),
+				(TextView) findViewById(R.id.subName7),
+				(TextView) findViewById(R.id.subName8),
+				(TextView) findViewById(R.id.subName9),
+				(TextView) findViewById(R.id.subName10),
+				(TextView) findViewById(R.id.subName11),
+				(TextView) findViewById(R.id.subName12),
+				(TextView) findViewById(R.id.subName13),
+				(TextView) findViewById(R.id.subName14),
+				(TextView) findViewById(R.id.subName15),
+				(TextView) findViewById(R.id.subName16),
+				(TextView) findViewById(R.id.subName17),
+				(TextView) findViewById(R.id.subName18),
+				(TextView) findViewById(R.id.subName19),
+				(TextView) findViewById(R.id.subName20),
+				(TextView) findViewById(R.id.subName21),
+				(TextView) findViewById(R.id.subName22),
+				(TextView) findViewById(R.id.subName23),
+				(TextView) findViewById(R.id.subName24),
+				(TextView) findViewById(R.id.subName25),
+				(TextView) findViewById(R.id.subName26),
+				(TextView) findViewById(R.id.subName27),
+				(TextView) findViewById(R.id.subName28),
+				(TextView) findViewById(R.id.subName29),
+				(TextView) findViewById(R.id.subName30), };
+
+		codeArray = new TextView[] { (TextView) findViewById(R.id.subCode1),
+				(TextView) findViewById(R.id.subCode2),
+				(TextView) findViewById(R.id.subCode3),
+				(TextView) findViewById(R.id.subCode4),
+				(TextView) findViewById(R.id.subCode5),
+				(TextView) findViewById(R.id.subCode6),
+				(TextView) findViewById(R.id.subCode7),
+				(TextView) findViewById(R.id.subCode8),
+				(TextView) findViewById(R.id.subCode9),
+				(TextView) findViewById(R.id.subCode10),
+				(TextView) findViewById(R.id.subCode11),
+				(TextView) findViewById(R.id.subCode12),
+				(TextView) findViewById(R.id.subCode13),
+				(TextView) findViewById(R.id.subCode14),
+				(TextView) findViewById(R.id.subCode15),
+				(TextView) findViewById(R.id.subCode16),
+				(TextView) findViewById(R.id.subCode17),
+				(TextView) findViewById(R.id.subCode18),
+				(TextView) findViewById(R.id.subCode19),
+				(TextView) findViewById(R.id.subCode20),
+				(TextView) findViewById(R.id.subCode21),
+				(TextView) findViewById(R.id.subCode22),
+				(TextView) findViewById(R.id.subCode23),
+				(TextView) findViewById(R.id.subCode24),
+				(TextView) findViewById(R.id.subCode25),
+				(TextView) findViewById(R.id.subCode26),
+				(TextView) findViewById(R.id.subCode27),
+				(TextView) findViewById(R.id.subCode28),
+				(TextView) findViewById(R.id.subCode29),
+				(TextView) findViewById(R.id.subCode30) };
+
+	}
+	*/
 
 	// create an inflatable preferences menu
 	@Override
