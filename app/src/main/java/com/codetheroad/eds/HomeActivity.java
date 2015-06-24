@@ -78,8 +78,9 @@ public class HomeActivity extends SharedPref {
 				.icon(BitmapDescriptorFactory.fromResource(R.drawable.library64)));
 		Marker event3 = map.addMarker(new MarkerOptions()
 				.position(Event3)
-				.title("Alert")
-				.snippet("Sally W.  - Emergency"));
+				.title("Hospital")
+				.snippet("Safe Zone")
+				.icon(BitmapDescriptorFactory.fromResource(R.drawable.hospital64)));
 		Marker event4 = map.addMarker(new MarkerOptions()
 				.position(Event4)
 				.title("Alert")
