@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.TabHost;
@@ -81,9 +82,8 @@ public class TabLayoutActivity extends TabActivity {
 			public void onTabChanged(String tabId) {
 				if ("Maps".equals(tabId)) {
 					// start google maps app
-					startActivity(getPackageManager()
-							.getLaunchIntentForPackage(
-									"com.google.android.apps.maps"));
+					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=33.89569276,-84.4877032(label)"));
+					startActivity(intent);
 					// set tab selection to home tab
 					tabHostObj.setCurrentTab(2);
 				}
