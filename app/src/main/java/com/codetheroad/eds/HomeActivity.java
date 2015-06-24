@@ -1,6 +1,7 @@
 package com.codetheroad.eds;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -154,7 +155,8 @@ public class HomeActivity extends SharedPref {
 				String item = ((TextView) view).getText().toString();
 
 				Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
-
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=33.89569276,-84.4877032(label)"));
+				startActivity(intent);
 			}
 		});
 		// Move the camera instantly to hamburg with a zoom of 15.
