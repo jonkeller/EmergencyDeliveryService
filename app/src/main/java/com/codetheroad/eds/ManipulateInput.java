@@ -79,19 +79,6 @@ public class ManipulateInput extends SharedPref {
 		return (hourlyWage * hoursSum) + tipSum;
 	}
 
-	protected double hourlyWageCheckedCalc(double hoursInStoreSum,
-			double hoursOnRoadSum, double tipSum) {
-		// get data from shared preferences and turn to double
-		String getWageInStore = getSavedData(hourlyWage, ManipulateInput.this);
-		String getWageOnRoad = getSavedData(roadWage, ManipulateInput.this);
-		double hourlyWageInStore = Double.parseDouble(getWageInStore);
-		double hourlyWageOnRoad = Double.parseDouble(getWageOnRoad);
-		// return calculation
-		return ((hourlyWageInStore * hoursInStoreSum)
-				+ (hourlyWageOnRoad * hoursOnRoadSum) + tipSum)
-				/ (hoursInStoreSum + hoursOnRoadSum);
-	}
-
 	protected double hourlyWageLessGasCheckedCalc(double hoursInStoreSum,
 			double hoursOnRoadSum, double tipSum, double gasSum) {
 		// get data from shared preferences and turn to double

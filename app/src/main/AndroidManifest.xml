@@ -90,19 +90,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.codetheroad.eds.HistoryActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="com.codetheroad.eds.HISTORY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".CommunicationActivity" />
-        <activity android:name="com.codetheroad.eds.WageCheckedActivity" />
         <activity android:name="com.codetheroad.eds.MapsActivity" />
         <activity android:name=".InventoryActivity" />
         <activity android:name=".LoggingActivity" />

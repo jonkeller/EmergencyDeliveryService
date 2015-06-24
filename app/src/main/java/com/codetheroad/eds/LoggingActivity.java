@@ -163,13 +163,6 @@ public class LoggingActivity extends ManipulateInput {
 						// set focus to the exported value than now populates
 						// the edit text in the wage activity
 						CommunicationActivity.tipsArray[0].requestFocus();
-					} else {
-						// set edit text to calculated sum
-						WageCheckedActivity.tipsCheckedArray[0].setText(String
-								.format("%.2f", totalWithFeeSum));
-						// set focus to the exported value than now populates
-						// the edit text in the wage activity
-						WageCheckedActivity.tipsCheckedArray[0].requestFocus();
 					}
 					break;
 				// if Tuesday, do the same as above:
@@ -182,10 +175,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[1].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[1].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[1].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[1].requestFocus();
 					}
 					break;
 				case Calendar.WEDNESDAY:
@@ -197,10 +186,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[2].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[2].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[2].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[2].requestFocus();
 					}
 					break;
 				case Calendar.THURSDAY:
@@ -212,10 +197,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[3].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[3].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[3].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[3].requestFocus();
 					}
 					break;
 				case Calendar.FRIDAY:
@@ -227,10 +208,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[4].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[4].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[4].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[4].requestFocus();
 					}
 					break;
 				case Calendar.SATURDAY:
@@ -242,10 +219,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[5].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[5].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[5].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[5].requestFocus();
 					}
 					break;
 				case Calendar.SUNDAY:
@@ -257,10 +230,6 @@ public class LoggingActivity extends ManipulateInput {
 						CommunicationActivity.tipsArray[6].setText(String.format("%.2f",
 								totalWithFeeSum));
 						CommunicationActivity.tipsArray[6].requestFocus();
-					} else {
-						WageCheckedActivity.tipsCheckedArray[6].setText(String
-								.format("%.2f", totalWithFeeSum));
-						WageCheckedActivity.tipsCheckedArray[6].requestFocus();
 					}
 					break;
 				}

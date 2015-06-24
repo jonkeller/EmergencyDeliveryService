@@ -33,22 +33,11 @@ public class TabLayoutActivity extends TabActivity {
 		Intent mapsIntent = new Intent(this, MapsActivity.class);
 		mapsSpec.setContent(mapsIntent);
 
-		// The wage activity has two versions based on whether the user has
-		// checked check box in the preferences activity. This if statement sets
-		// the appropriate activity based on the users choice
-		if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-				TabLayoutActivity.this))) {
-			communicationSpec = tabHostObj.newTabSpec("Communication");
-			communicationSpec.setIndicator("",
-					getResources().getDrawable(R.drawable.icon_wage_tab));
-			communicationIntent = new Intent(this, WageCheckedActivity.class);
-		} else {
-			communicationSpec = tabHostObj.newTabSpec("Wage");
-			communicationSpec.setIndicator("",
-					getResources().getDrawable(R.drawable.icon_wage_tab));
-			communicationIntent = new Intent(this, CommunicationActivity.class);
+		communicationSpec = tabHostObj.newTabSpec("Wage");
+		communicationSpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_wage_tab));
+    	communicationIntent = new Intent(this, CommunicationActivity.class);
 
-		}
 		communicationSpec.setContent(communicationIntent);
 
 		TabSpec homeSpec = tabHostObj.newTabSpec("Home");
