@@ -1,0 +1,50 @@
+{
+  vehicle: {
+    location: [ 33.75, 84.4 ],
+
+    itemsOnBoard: [
+      { quantity: 1000, item: { description: "food", volumeCubicInches: 100 } },
+      { quantity: 300, item: { description: "baby formula", volumeCubicInches: 20 } },
+
+      { quantity: 100, item: { description: "tarp", volumeCubicInches: 100 } },
+      { quantity: 50, item: { description: "duct tape", volumeCubicInches: 20 } },
+      { quantity: 50, item: { description: "towel", volumeCubicInches: 35 } },
+      { quantity: 50, item: { description: "flashlight", volumeCubicInches: 18 } },
+      { quantity: 50, item: { description: "tent", volumeCubicInches: 500 } },
+      { quantity: 20, item: { description: "camp stove", volumeCubicInches: 500 } },
+      { quantity: 50, item: { description: "sleeping bag", volumeCubicInches: 500 } },
+      { quantity: 50, item: { description: "pillow", volumeCubicInches: 100 } },
+
+      { quantity: 50, item: { description: "blanket", volumeCubicInches: 80 } },
+      { quantity: 100, item: { description: "clothing", volumeCubicInches: 90 } },
+      { quantity: 100, item: { description: "gloves", volumeCubicInches: 15 } },
+
+      { quantity: 1000, item: { description: "water", volumeCubicInches: 20 } },
+      { quantity: 50, item: { description: "sunscreen", volumeCubicInches: 20 } },
+
+      { quantity: 1000, item: { description: "hygiene kit", volumeCubicInches: 40 } },
+      { quantity: 50, item: { description: "toilet paper", volumeCubicInches: 50 } },
+
+      { quantity: 200, item: { description: "large bandage", volumeCubicInches: 5 } },
+      { quantity: 50, item: { description: "first aid kit", volumeCubicInches: 90 } }
+    ],
+
+    destinations: [
+      { location: [33.76, 84.4], contactInfo: "770-555-9058", needs: [
+        { type: "shelter", quantity: 1 },
+        { type: "cold exposure", quantity: 2 },
+      ]},
+      { location: [33.77, 84.5], contactInfo: "770-961-2589", needs: [
+        { type: "shelter", quantity: 1 },
+        { type: "hygiene", quantity: 4 },
+        { type: "heat exposure", quantity: 4 }
+      ]},
+      { location: [33.762, 84.38], contactInfo: "770-466-7902", needs: [
+        { type: "medical", quantity: 1 }
+      ]},
+      { location: [33.759, 84.43], contactInfo: "770-364-7685", needs: [
+        { type: "meal", quantity: 3 }
+      ]},
+    ]
+  }
+}
