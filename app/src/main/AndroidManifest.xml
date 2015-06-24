@@ -55,7 +55,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.MAINTABS" />
+                <action android:name="com.codetheroad.eds.MAINTABS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -66,7 +66,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.HOME" />
+                <action android:name="com.codetheroad.eds.HOME" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -77,7 +77,7 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.ABOUT" />
+                <action android:name="com.codetheroad.eds.ABOUT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -88,7 +88,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.TUTORIAL" />
+                <action android:name="com.codetheroad.eds.TUTORIAL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -99,27 +99,15 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.PREFERENCES" />
+                <action android:name="com.codetheroad.eds.PREFERENCES" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.codetheroad.eds.HistoryActivity"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="com.davidtunnell.deliverypal.HISTORY" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.codetheroad.eds.WageActivity" />
-        <activity android:name="com.codetheroad.eds.WageCheckedActivity" />
+        <activity android:name=".CommunicationActivity" />
         <activity android:name="com.codetheroad.eds.MapsActivity" />
-        <activity android:name="com.codetheroad.eds.GateActivity" />
-        <activity android:name="com.codetheroad.eds.TipsActivity" />
+        <activity android:name=".InventoryActivity" />
+        <activity android:name=".LoggingActivity" />
     </application>
 
 </manifest>

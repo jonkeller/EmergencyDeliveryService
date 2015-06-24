@@ -14,8 +14,8 @@ import android.widget.TabHost.TabSpec;
 public class TabLayoutActivity extends TabActivity {
 
 	public static TabHost tabHostObj;
-	public TabSpec wageSpec;
-	public Intent wageIntent;
+	public TabSpec communicationSpec;
+	public Intent communicationIntent;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,23 +33,12 @@ public class TabLayoutActivity extends TabActivity {
 		Intent mapsIntent = new Intent(this, MapsActivity.class);
 		mapsSpec.setContent(mapsIntent);
 
-		// The wage activity has two versions based on whether the user has
-		// checked check box in the preferences activity. This if statement sets
-		// the appropriate activity based on the users choice
-		if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-				TabLayoutActivity.this))) {
-			wageSpec = tabHostObj.newTabSpec("Wage");
-			wageSpec.setIndicator("",
-					getResources().getDrawable(R.drawable.icon_wage_tab));
-			wageIntent = new Intent(this, WageCheckedActivity.class);
-		} else {
-			wageSpec = tabHostObj.newTabSpec("Wage");
-			wageSpec.setIndicator("",
-					getResources().getDrawable(R.drawable.icon_wage_tab));
-			wageIntent = new Intent(this, WageActivity.class);
+		communicationSpec = tabHostObj.newTabSpec("Wage");
+		communicationSpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_wage_tab));
+    	communicationIntent = new Intent(this, CommunicationActivity.class);
 
-		}
-		wageSpec.setContent(wageIntent);
+		communicationSpec.setContent(communicationIntent);
 
 		TabSpec homeSpec = tabHostObj.newTabSpec("Home");
 		homeSpec.setIndicator("",
@@ -57,24 +46,24 @@ public class TabLayoutActivity extends TabActivity {
 		Intent homeIntent = new Intent(this, HomeActivity.class);
 		homeSpec.setContent(homeIntent);
 
-		TabSpec gateSpec = tabHostObj.newTabSpec("Gate");
-		gateSpec.setIndicator("",
-				getResources().getDrawable(R.drawable.icon_gate_tab));
-		Intent gateIntent = new Intent(this, GateActivity.class);
-		gateSpec.setContent(gateIntent);
+		TabSpec inventorySpec = tabHostObj.newTabSpec("Inventory");
+		inventorySpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_inventory_tab));
+		Intent inventoryIntent = new Intent(this, InventoryActivity.class);
+		inventorySpec.setContent(inventoryIntent);
 
-		TabSpec tipsSpec = tabHostObj.newTabSpec("Tips");
-		tipsSpec.setIndicator("",
-				getResources().getDrawable(R.drawable.icon_tips_tab));
-		Intent gasIntent = new Intent(this, TipsActivity.class);
-		tipsSpec.setContent(gasIntent);
+		TabSpec loggingSpec = tabHostObj.newTabSpec("Logging");
+		loggingSpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_logging_tab));
+		Intent loggingIntent = new Intent(this, LoggingActivity.class);
+		loggingSpec.setContent(loggingIntent);
 
 		// Adding all TabSpecObj to TabHost
 		tabHostObj.addTab(mapsSpec);
-		tabHostObj.addTab(wageSpec);
+		tabHostObj.addTab(communicationSpec);
 		tabHostObj.addTab(homeSpec);
-		tabHostObj.addTab(gateSpec);
-		tabHostObj.addTab(tipsSpec);
+		tabHostObj.addTab(inventorySpec);
+		tabHostObj.addTab(loggingSpec);
 
 		// Set default tab to Home
 		tabHostObj.setCurrentTab(2);

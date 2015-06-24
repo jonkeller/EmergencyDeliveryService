@@ -107,7 +107,7 @@
             android:layout_alignLeft="@+id/imageView4"
             android:layout_below="@+id/TextView03"
             android:layout_marginTop="18dp"
-            android:src="@drawable/gate_clicked_icon1" />
+            android:src="@drawable/inventory_clicked_icon1" />
 
         <TextView
             android:id="@+id/TextView04"
@@ -117,7 +117,7 @@
             android:layout_below="@+id/imageView5"
             android:layout_marginTop="17dp"
             android:gravity="center"
-            android:text="Here you can save all of the gate codes in your delivery area."
+            android:text="An inventory list appears here."
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ImageView
@@ -127,7 +127,7 @@
             android:layout_alignLeft="@+id/imageView5"
             android:layout_below="@+id/TextView04"
             android:layout_marginTop="18dp"
-            android:src="@drawable/tips_clicked_icon1" />
+            android:src="@drawable/logging_clicked_icon1" />
 
         <TextView
             android:id="@+id/textView3"

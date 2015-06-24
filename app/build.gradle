@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.0 rc2"
 
     defaultConfig {
-        applicationId "com.davidtunnell.deliverypal"
+        applicationId "com.codetheroad.eds"
         minSdkVersion 15
         targetSdkVersion 18
     }

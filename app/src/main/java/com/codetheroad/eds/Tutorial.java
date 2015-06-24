@@ -21,12 +21,12 @@ public class Tutorial extends SharedPref {
 			public void onClick(View v) {
 				if (getSavedData(firstCheck, Tutorial.this) == null) {
 					Intent firstPref = new Intent(
-							"com.davidtunnell.deliverypal.PREFERENCES");
+							"com.codetheroad.eds.PREFERENCES");
 					startActivity(firstPref);
 				} else {
 					// else go to the main activity
 					Intent firstPref = new Intent(
-							"com.davidtunnell.deliverypal.MAINTABS");
+							"com.codetheroad.eds.MAINTABS");
 					startActivity(firstPref);
 				}
 
