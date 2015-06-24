@@ -127,7 +127,7 @@
             android:layout_alignLeft="@+id/imageView5"
             android:layout_below="@+id/TextView04"
             android:layout_marginTop="18dp"
-            android:src="@drawable/tips_clicked_icon1" />
+            android:src="@drawable/logging_clicked_icon1" />
 
         <TextView
             android:id="@+id/textView3"

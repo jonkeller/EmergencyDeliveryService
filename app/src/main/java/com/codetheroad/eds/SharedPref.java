@@ -10,7 +10,7 @@ public class SharedPref extends Activity {
 
 	// create global variables for all of the shared preferences keys
 	public static final String firstCheck = "First_Run_Check";
-	public static final String tipSave = "Tip_Save";
+	public static final String loggingSave = "Logging_Save";
 	public static final String[] tipList = new String[] { "Tip_Save1",
 			"Tip_Save2", "Tip_Save3", "Tip_Save4", "Tip_Save5", "Tip_Save6",
 			"Tip_Save7" };
