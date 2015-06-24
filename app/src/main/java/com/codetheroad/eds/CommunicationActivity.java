@@ -23,7 +23,23 @@ public class CommunicationActivity extends ManipulateInput {
 		setContentView(R.layout.communcation_layout);
 	//	connectVariables();
 	//	populateFields();
+		Button button = (Button) findViewById(R.id.button1);
+
+		button.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+				smsIntent.setType("vnd.android-dir/mms-sms");
+				smsIntent.putExtra("address", "4046106603");
+				smsIntent.putExtra("sms_body","Where are you?");
+				startActivity(smsIntent);
+			}
+
+		});
 	}
+
+
 
 //	private void connectVariables() {
 //		// Connect XML layout with Java
