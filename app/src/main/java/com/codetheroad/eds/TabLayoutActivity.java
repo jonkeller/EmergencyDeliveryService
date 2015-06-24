@@ -63,18 +63,18 @@ public class TabLayoutActivity extends TabActivity {
 		Intent inventoryIntent = new Intent(this, InventoryActivity.class);
 		inventorySpec.setContent(inventoryIntent);
 
-		TabSpec tipsSpec = tabHostObj.newTabSpec("Tips");
-		tipsSpec.setIndicator("",
-				getResources().getDrawable(R.drawable.icon_tips_tab));
-		Intent gasIntent = new Intent(this, TipsActivity.class);
-		tipsSpec.setContent(gasIntent);
+		TabSpec loggingSpec = tabHostObj.newTabSpec("Logging");
+		loggingSpec.setIndicator("",
+				getResources().getDrawable(R.drawable.icon_logging_tab));
+		Intent loggingIntent = new Intent(this, LoggingActivity.class);
+		loggingSpec.setContent(loggingIntent);
 
 		// Adding all TabSpecObj to TabHost
 		tabHostObj.addTab(mapsSpec);
 		tabHostObj.addTab(wageSpec);
 		tabHostObj.addTab(homeSpec);
 		tabHostObj.addTab(inventorySpec);
-		tabHostObj.addTab(tipsSpec);
+		tabHostObj.addTab(loggingSpec);
 
 		// Set default tab to Home
 		tabHostObj.setCurrentTab(2);

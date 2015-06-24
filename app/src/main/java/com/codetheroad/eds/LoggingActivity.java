@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TipsActivity extends ManipulateInput {
+public class LoggingActivity extends ManipulateInput {
 
 	EditText[] tipArray;
 	TextView totalTips;
@@ -25,7 +25,7 @@ public class TipsActivity extends ManipulateInput {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tips_layout);
+		setContentView(R.layout.logging_layout);
 		connectVariables();
 		populateFields();
 	}
@@ -99,9 +99,9 @@ public class TipsActivity extends ManipulateInput {
 				totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 				// save these calculations
 				saveToSP(runningTotal, Double.toString(runningTotalSum),
-						TipsActivity.this);
+						LoggingActivity.this);
 				saveToSP(totalWithFee, Double.toString(totalWithFeeSum),
-						TipsActivity.this);
+						LoggingActivity.this);
 				// set edit text fields with calculations for user
 				totalTips.setText(String.format("%.2f", runningTotalSum));
 				totalTipsGas.setText(String.format("%.2f", totalWithFeeSum));
@@ -122,15 +122,15 @@ public class TipsActivity extends ManipulateInput {
 				saveEditTextArray(tipCell, tipArray, "");
 				// zero out and save text fields that show calculation sums to
 				// user
-				saveToSP(runningTotal, "0.00", TipsActivity.this);
-				saveToSP(totalWithFee, "0.00", TipsActivity.this);
+				saveToSP(runningTotal, "0.00", LoggingActivity.this);
+				saveToSP(totalWithFee, "0.00", LoggingActivity.this);
 				// set the text fields to the new zeroed out saved data
 				totalTips.setText(String.format("%.2f", Double
 						.parseDouble(getSavedData(runningTotal,
-								TipsActivity.this))));
+								LoggingActivity.this))));
 				totalTipsGas.setText(String.format("%.2f", Double
 						.parseDouble(getSavedData(totalWithFee,
-								TipsActivity.this))));
+								LoggingActivity.this))));
 				// tell user what happened
 				Toast.makeText(getApplicationContext(), "Exported and Cleared",
 						Toast.LENGTH_SHORT).show();
@@ -150,13 +150,13 @@ public class TipsActivity extends ManipulateInput {
 					// save to corresponding part of tip list array based on
 					// which day it is
 					saveToSP(tipList[0], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					// if the user does not have a different wage when in the
 					// store, then the wage activity is different than if they
 					// do, so changes must be made to what happens in these
 					// circumstances
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						// set edit text to calculated sum
 						WageActivity.tipsArray[0].setText(String.format("%.2f",
 								totalWithFeeSum));
@@ -176,9 +176,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.TUESDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[1], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[1].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[1].requestFocus();
@@ -191,9 +191,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.WEDNESDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[2], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[2].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[2].requestFocus();
@@ -206,9 +206,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.THURSDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[3], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[3].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[3].requestFocus();
@@ -221,9 +221,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.FRIDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[4], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[4].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[4].requestFocus();
@@ -236,9 +236,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.SATURDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[5], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[5].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[5].requestFocus();
@@ -251,9 +251,9 @@ public class TipsActivity extends ManipulateInput {
 				case Calendar.SUNDAY:
 					totalWithFeeSum = ErrorCheckSumDeliveryFee(tipArray);
 					saveToSP(tipList[6], Double.toString(totalWithFeeSum),
-							TipsActivity.this);
+							LoggingActivity.this);
 					if (Boolean.valueOf(getSavedData("Wage_Check_Box",
-							TipsActivity.this)) == false) {
+							LoggingActivity.this)) == false) {
 						WageActivity.tipsArray[6].setText(String.format("%.2f",
 								totalWithFeeSum));
 						WageActivity.tipsArray[6].requestFocus();
@@ -272,9 +272,9 @@ public class TipsActivity extends ManipulateInput {
 		// retrieve data from shared preferences and populated edit text fields
 		getSavedEditTextArray(tipCell, tipArray);
 		totalTips.setText(String.format("%.2f", Double
-				.parseDouble(getSavedData(runningTotal, TipsActivity.this))));
+				.parseDouble(getSavedData(runningTotal, LoggingActivity.this))));
 		totalTipsGas.setText(String.format("%.2f", Double
-				.parseDouble(getSavedData(totalWithFee, TipsActivity.this))));
+				.parseDouble(getSavedData(totalWithFee, LoggingActivity.this))));
 	}
 
 	protected void onPause() {

@@ -1798,7 +1798,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="165dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/tip_text_box" />
+        android:src="@drawable/logging_text_box" />
 
     <TextView
         android:id="@+id/textView2"
@@ -1818,7 +1818,7 @@
         android:layout_alignLeft="@+id/imageView1"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="27dp"
-        android:src="@drawable/tip_money_box" />
+        android:src="@drawable/logging_money_box" />
 
     <ImageView
         android:id="@+id/ImageView01"
@@ -1827,7 +1827,7 @@
         android:layout_alignLeft="@+id/ImageView02"
         android:layout_below="@+id/ImageView02"
         android:layout_marginTop="1dp"
-        android:src="@drawable/tip_text_box" />
+        android:src="@drawable/logging_text_box" />
 
     <TextView
         android:id="@+id/TextView01"
@@ -1882,7 +1882,7 @@
         android:layout_alignLeft="@+id/ImageView01"
         android:layout_below="@+id/TextView02"
         android:layout_marginTop="15dp"
-        android:src="@drawable/tip_money_box" />
+        android:src="@drawable/logging_money_box" />
 
     <TextView
         android:id="@+id/TextView04"

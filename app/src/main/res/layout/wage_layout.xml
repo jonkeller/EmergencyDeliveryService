@@ -68,7 +68,7 @@
                 android:layout_alignRight="@+id/TextView03"
                 android:layout_below="@+id/ImageView03"
                 android:layout_marginRight="26dp"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <EditText
                 android:id="@+id/tipBox1"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/imageView1"
                 android:layout_below="@+id/imageView1"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <EditText
                 android:id="@+id/hoursBox1"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView01"
                 android:layout_below="@+id/ImageView01"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <EditText
                 android:id="@+id/gasBox1"
@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView02"
                 android:layout_below="@+id/ImageView04"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView06"
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView05"
                 android:layout_below="@+id/ImageView05"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView07"
@@ -255,7 +255,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView06"
                 android:layout_below="@+id/ImageView06"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView08"
@@ -306,7 +306,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView07"
                 android:layout_below="@+id/ImageView08"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView09"
@@ -338,7 +338,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView09"
                 android:layout_below="@+id/ImageView09"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView11"
@@ -370,7 +370,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView10"
                 android:layout_below="@+id/ImageView10"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView12"
@@ -421,7 +421,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView11"
                 android:layout_below="@+id/ImageView12"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView14"
@@ -453,7 +453,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView13"
                 android:layout_below="@+id/ImageView13"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView15"
@@ -485,7 +485,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView14"
                 android:layout_below="@+id/ImageView14"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView16"
@@ -536,7 +536,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView15"
                 android:layout_below="@+id/ImageView16"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView18"
@@ -568,7 +568,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView17"
                 android:layout_below="@+id/ImageView17"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView19"
@@ -600,7 +600,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView18"
                 android:layout_below="@+id/ImageView18"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView20"
@@ -651,7 +651,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView19"
                 android:layout_below="@+id/ImageView20"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <ImageView
                 android:id="@+id/ImageView22"
@@ -659,7 +659,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView21"
                 android:layout_below="@+id/ImageView21"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <ImageView
                 android:id="@+id/ImageView23"
@@ -667,7 +667,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView22"
                 android:layout_below="@+id/ImageView22"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <ImageView
                 android:id="@+id/ImageView24"
@@ -683,7 +683,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView23"
                 android:layout_below="@+id/ImageView24"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView26"
@@ -702,7 +702,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView25"
                 android:layout_below="@+id/ImageView25"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <ImageView
                 android:id="@+id/ImageView27"
@@ -710,7 +710,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/ImageView26"
                 android:layout_below="@+id/ImageView26"
-                android:src="@drawable/tip_money_box" />
+                android:src="@drawable/logging_money_box" />
 
             <TextView
                 android:id="@+id/TextView22"

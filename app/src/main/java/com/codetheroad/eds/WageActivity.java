@@ -59,7 +59,7 @@ public class WageActivity extends ManipulateInput {
 				double hoursSum = ErrorCheckSum(hoursArray);
 				double gasSum = ErrorCheckSum(gasArray);
 				// Save EditText fields
-				saveEditTextArray(tipSave, tipsArray, null);
+				saveEditTextArray(loggingSave, tipsArray, null);
 				saveEditTextArray(hoursSave, hoursArray, null);
 				saveEditTextArray(gasSave, gasArray, null);
 
@@ -147,7 +147,7 @@ public class WageActivity extends ManipulateInput {
 					saveToSP(historyCounter, Integer.toString(histCounter + 1),
 							WageActivity.this);
 					// clear Edit Texts in activity
-					saveEditTextArray(tipSave, tipsArray, "0");
+					saveEditTextArray(loggingSave, tipsArray, "0");
 					saveEditTextArray(hoursSave, hoursArray, "0");
 					saveEditTextArray(gasSave, gasArray, "0");
 					// clear edit texts on home page
@@ -175,7 +175,7 @@ public class WageActivity extends ManipulateInput {
 
 	private void populateFields() {
 		// retrieve data from shared preferences and populated edit text fields
-		getSavedEditTextArray(tipSave, tipsArray);
+		getSavedEditTextArray(loggingSave, tipsArray);
 		getSavedEditTextArray(hoursSave, hoursArray);
 		getSavedEditTextArray(gasSave, gasArray);
 	}
