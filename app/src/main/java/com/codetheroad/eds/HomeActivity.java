@@ -34,7 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class HomeActivity extends SharedPref {
+public class HomeActivity extends Activity {
 	static final LatLng Atlanta = new LatLng(33.8660485,-84.416913);
 	static final LatLng Event1 = new LatLng(33.9339546,-84.64890548);
 	static final LatLng Event2 = new LatLng(33.88506299,-84.40306652);
