@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -73,4 +74,45 @@ public class Destination {
 
         return maxPriority;
     }
+
+    public Map<Item.Type, Integer> getItemsRequested() {
+        Map<Item.Type, Integer> itemsAcrossAllNeeds = new HashMap<Item.Type, Integer>();
+        Iterator<Map.Entry<Need, Integer>> it = needs.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Need, Integer> pair = it.next();
+            Need need = pair.getKey();
+            int quantityOfNeeds = pair.getValue();
+            Iterator<Map.Entry<Item.Type, Integer>> it2 = need.getItems().entrySet().iterator();
+            while (it2.hasNext()) {
+                Map.Entry<Item.Type, Integer> itemPair = it2.next();
+                Item.Type itemType = itemPair.getKey();
+                int itemQuantityPerNeed = itemPair.getValue();
+                if (itemsAcrossAllNeeds.containsKey(itemType)) {
+                    int previousQuantity = itemsAcrossAllNeeds.get(itemType);
+                    itemsAcrossAllNeeds.put(itemType, previousQuantity + itemQuantityPerNeed * quantityOfNeeds);
+                } else {
+                    itemsAcrossAllNeeds.put(itemType, itemQuantityPerNeed * quantityOfNeeds);
+                }
+            }
+        }
+        return itemsAcrossAllNeeds;
+    }
+
+    public String getNeedsAsString() {
+        Map<Item.Type, Integer> itemsRequested = getItemsRequested();
+
+        StringBuffer buf = new StringBuffer();
+        Iterator<Map.Entry<Item.Type, Integer>> it3 = itemsRequested.entrySet().iterator();
+        while (it3.hasNext()) {
+            Map.Entry<Item.Type, Integer> entry = it3.next();
+            Item.Type itemType = entry.getKey();
+            int quantity = entry.getValue();
+            if (buf.length() != 0) {
+                buf.append(", ");
+            }
+            buf.append("" + quantity + " " + Item.typeToString(itemType));
+        }
+        return buf.toString();
+    }
+
 }

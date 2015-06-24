@@ -9,6 +9,31 @@ public class Item {
         BLANKET, CLOTHING, GLOVES, WATER, SUNSCREEN, HYGIENE_KIT, TOILET_PAPER, TOWEL,
         LARGE_BANDAGE, FIRST_AID_KIT, FOOD, BABY_FORMULA };
 
+    public static String typeToString(Type itemType) {
+        switch (itemType) {
+            case TARP: return "tarp";
+            case TENT: return "tent";
+            case FLASHLIGHT: return "flashlight";
+            case CAMP_STOVE: return "camp stove";
+            case PILLOW: return "pillow";
+            case SLEEPING_BAG: return "sleeping bag";
+            case DUCT_TAPE: return "duct tape";
+            case BLANKET: return "blanket";
+            case CLOTHING: return "clothing";
+            case GLOVES: return "gloves";
+            case WATER: return "water";
+            case SUNSCREEN: return "sunscreen";
+            case HYGIENE_KIT: return "hygiene kit";
+            case TOILET_PAPER: return "toilet paper";
+            case TOWEL: return "towel";
+            case LARGE_BANDAGE: return "large bandage";
+            case FIRST_AID_KIT: return "first aid kit";
+            case FOOD: return "food";
+            case BABY_FORMULA: return "baby formula";
+        }
+        return null;
+    }
+
     /*
     //protected Type type;
     //protected int volumeCubicInches;

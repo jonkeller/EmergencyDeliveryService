@@ -73,6 +73,29 @@ public class Vehicle {
         // TODO
     }
 
+    public String getItemsBeingDeliveredAsString() {
+        Destination nextDestination = getDestinations().get(0);
+        Map<Item.Type, Integer> itemsRequested = nextDestination.getItemsRequested();
+
+        StringBuffer buf = new StringBuffer();
+        Iterator<Map.Entry<Item.Type, Integer>> it3 = itemsRequested.entrySet().iterator();
+        while (it3.hasNext()) {
+            Map.Entry<Item.Type, Integer> entry = it3.next();
+            Item.Type itemType = entry.getKey();
+            int quantityRequested = entry.getValue();
+
+            // Do we have enough?
+            int quantityOnHand = this.itemsOnBoard.get(itemType);
+            int quantityToDeliver = (quantityOnHand >= quantityRequested ? quantityRequested : quantityOnHand);
+
+            if (buf.length() != 0) {
+                buf.append(", ");
+            }
+            buf.append("" + quantityToDeliver + " " + Item.typeToString(itemType));
+        }
+        return buf.toString();
+    }
+
     public void deliver(LatLng deliveryLocation) {
         // No longer need to go to this destination
         Iterator<Destination> destinationIterator = this.destinations.iterator();
